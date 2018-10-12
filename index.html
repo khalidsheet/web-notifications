@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Notifications</title>
+	<link rel="stylesheet" href="dist/css/notifications.css">
+	<link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
+</head>
+<body>
+	<h1 style="text-align: center;">Notifications</h1>
+
+	<div class="heyMessage" notifiable="enable"></div>
+
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="dist/js/notifications.js"></script>
+	<script>
+		var notify = new Notification('.heyMessage', 'success', {
+			title: 'معلومة جديدة',
+			body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia distinctio culpa cum quas odit voluptatum rem quisquam non, est, nobis!',
+			position: 'bottom-left'
+		})
+
+
+		notify.show()
+	</script>
+</body>
+</html>
