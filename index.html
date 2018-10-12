@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<title>Notifications</title>
 	<link rel="stylesheet" href="dist/css/notifications.css">
-	<link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
 </head>
 <body>
 	<h1 style="text-align: center;">Notifications</h1>
@@ -15,12 +14,13 @@
 	<script src="dist/js/notifications.js"></script>
 	<script>
 		var notify = new Notification('.heyMessage', 'success', {
-			title: 'معلومة جديدة',
-			body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia distinctio culpa cum quas odit voluptatum rem quisquam non, est, nobis!',
-			position: 'bottom-left'
-		})
+			title: 'Lorem ipsum.',
+			body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, dolores!',
+			position: 'bottom-left',
+			dir: 'ltr'
+		});
 
-		notify.show()
+		notify.show();
 	</script>
 </body>
 </html>
