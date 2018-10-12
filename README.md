@@ -34,7 +34,8 @@
 	var notify = new Notification('.whateverClassName', 'type', {
 		title: '',
 		body: '',
-		position: ''
+		position: '',
+		dir: '' // ltr, rtl
 	});
 ```
 ---
