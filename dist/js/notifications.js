@@ -6,7 +6,6 @@ window.onload = function() {
 			"Download jQuery then import it before this library.",
 			"Download jQuery: https://code.jquery.com from jQuery CDN."
 		);
-
 		return null;
 	}
 }
@@ -31,64 +30,48 @@ var Notification = function(elem, subType, options) {
 		return null;
 	}
 
-	
-	$(elem).addClass('notification')
-
 	var data = {
-		elem: {
-			info: $(elem).attr('notifiable', 'enable'),
-			raw: $(elem)
-		},
-		opts: options,
-		isNotifiable: $(elem).attr('notifiable')
+		elem: $(elem).attr('notifiable', 'enable'),
+		opts: options
 	};
 
-
-	var notificationPosition = data.opts.position;
-	$(elem).addClass(positions[notificationPosition])
-
-	if (data.opts.dir != undefined && data.opts.dir == 'ltr') {
-		$(elem).css('direction', 'ltr')
-	} else {
-		$(elem).css('direction', 'rtl')
-	}
+	$(elem).addClass('notification');
+	$(elem).addClass(positions[data.opts.position] || 'notification-bottom-left');
+	$(elem).css('direction', data.opts.dir || 'rtl');
 
 	if (data.opts.title != null) {
-		$(elem).append(`<span class="notify-title">${data.opts.title}</span>`)
+		$(elem).append(`<span class="notify-title">${data.opts.title}</span>`);
 	}
 
 	if (data.opts.body) {
-		$(elem).append(`<span class="notify-body">${data.opts.body}</span>`)
+		$(elem).append(`<span class="notify-body">${data.opts.body}</span>`);
 	}
 
 	$(elem).on('click', function() {
 		methods.hide();
-	})
+	});
 		
-		
-
 	var methods = {
 		show: function() {
-			var e = data.elem.info;
-				e.addClass('notify-alert').addClass('na-' + subType)
+			var e = data.elem;
+				e.addClass('notify-alert').addClass('na-' + subType);
 				e.fadeIn();
-
 			return methods;
 		},
 		showAfter: function(time = 1000) {
 			setTimeout(function(){
-				methods.show()
-			}, time)
+				methods.show();
+			}, time);
 		},
 		hide: function() {
-			var e = data.elem.info;
-			e.fadeOut();
+			var e = data.elem;
+				e.fadeOut();
 			return methods;			
 		},
 		hideAfter: function(time = 1000) {
 			setTimeout(function(){
-				methods.hide()
-			}, time)
+				methods.hide();
+			}, time);
 		}
 	};
 
